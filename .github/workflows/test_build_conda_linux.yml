@@ -1,7 +1,7 @@
 name: Test Build Linux Conda
 
 on:
-  push:
+  pull-request:
     paths:
       - .github/actions/setup-binary-builds/action.yml
       - .github/workflows/test_build_conda_linux.yml
@@ -43,6 +43,6 @@ jobs:
       ref: nightly
       test-infra-repository: ${{ github.repository }}
       test-infra-ref: ${{ github.ref }}
-      build-matrix:  ${{ needs.generate-matrix.outputs.matrix }}
+      build-matrix: ${{ needs.generate-matrix.outputs.matrix }}
       pre-script: ${{ matrix.pre-script }}
       post-script: ${{ matrix.post-script }}
